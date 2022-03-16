@@ -11,4 +11,5 @@ class TestModules(unittest.TestCase):
         self.assertNotEqual(frenchToEnglish("Bonjour"), "")
 
 if __name__ == "__main__":
-    unittest.main();
+    unittest.main()
+

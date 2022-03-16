@@ -1,3 +1,7 @@
+"""
+Translator API Endpoint
+"""
+
 import os
 
 from ibm_watson import LanguageTranslatorV3
@@ -6,31 +10,31 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-apikey = os.environ['apikey']
-url = os.environ['url']
+API_KEY = os.environ['apikey']
+URL = os.environ['url']
 
-version = "2018-05-01"
+VERSION = "2018-05-01"
 
-authenticator = IAMAuthenticator(apikey)
+authenticator = IAMAuthenticator(API_KEY)
 language_translator = LanguageTranslatorV3(
-    version=version,
+    version=VERSION,
     authenticator=authenticator
 )
 
-language_translator.set_service_url(url)
+language_translator.set_service_url(URL)
 
-def englishToFrench(englishText):
+def english_to_french(english_text):
     """
     English to French Translator
     """
-    frenchText = language_translator.translate(
-        text=englishText, model_id='en-fr').get_result()
-    return frenchText.get("translations")[0].get("translation")
+    french_text = language_translator.translate(
+        text=english_text, model_id='en-fr').get_result()
+    return french_text.get("translations")[0].get("translation")
 
-def frenchToEnglish(frenchText):
+def french_to_english(french_text):
     """
     French to English Translator
     """
-    englishText = language_translator.translate(
-        text=frenchText, model_id='fr-en').get_result()
-    return englishText.get("translations")[0].get("translation")
+    english_text = language_translator.translate(
+        text=french_text, model_id='fr-en').get_result()
+    return english_text.get("translations")[0].get("translation")
