@@ -11,13 +11,13 @@ url = os.environ['url']
 
 version = "2018-05-01"
 
-authenticator = IAMAuthenticator('{apikey}')
+authenticator = IAMAuthenticator(apikey)
 language_translator = LanguageTranslatorV3(
-    version='{version}',
+    version=version,
     authenticator=authenticator
 )
 
-language_translator.set_service_url('{url}')
+language_translator.set_service_url(url)
 
 def englishToFrench(englishText):
     """

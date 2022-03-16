@@ -9,3 +9,6 @@ class TestModules(unittest.TestCase):
     def test_frenchToEnglish(self):
         self.assertEqual(frenchToEnglish("Bonjour"), "Hello")
         self.assertNotEqual(frenchToEnglish("Bonjour"), "")
+
+if __name__ == "__main__":
+    unittest.main();
