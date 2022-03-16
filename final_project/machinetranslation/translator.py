@@ -20,7 +20,17 @@ language_translator = LanguageTranslatorV3(
 language_translator.set_service_url('{url}')
 
 def englishToFrench(englishText):
-    #write the code here
+    """
+    English to French Translator
+    """
     frenchText = language_translator.translate(
         text=englishText, model_id='en-fr').get_result()
     return frenchText
+
+def frenchToEnglish(frenchText):
+    """
+    French to English Translator
+    """
+    englishText = language_translator.translate(
+        text=frenchText, model_id='fr-en').get_result()
+    return englishText
